@@ -40,11 +40,11 @@ SendInfoMessage("-- > All elements of the variant were obtained");
 
 
 string inputElementsContingency = @"" + path + "\\elementsContingency.csv";
-string inputElementsForAnalisys = @"" + path + "\\elementsForAnalisys.csv";
+string inputElementsForAnalysis = @"" + path + "\\elementsForAnalysis.csv";
 
 
 string[] elementsContingency = File.ReadAllLines(inputElementsContingency);
-string[] elementsAnalisys = File.ReadAllLines(inputElementsForAnalisys);
+string[] elementsAnalysis = File.ReadAllLines(inputElementsForAnalysis);
 
 
 
@@ -73,20 +73,20 @@ foreach (var element in allElementOfVariante)
                 Dictionary<string, List<string>> resultsElement = new Dictionary<string, List<string>>();
                 foreach (string key in AllAnalysisResults.Keys)
                 {
-                    //Foreach in all celements for analisys input
-                    foreach (var e in elementsAnalisys)
+                    //Foreach in all celements for Analysis input
+                    foreach (var e in elementsAnalysis)
                     {
-                        var elementAnalisys = e.Split(',');
+                        var elementAnalysis = e.Split(',');
 
-                        if (elementAnalisys[0] == key)
+                        if (elementAnalysis[0] == key)
                         {
                             SendInfoMessage("Result of element  " + key);
                             
                             List<string> resultsNEPLAN = AllAnalysisResults[key];
                             List<string> resultForPrint = new List<string>();
-                            resultForPrint.Add(elementAnalisys[1]);
+                            resultForPrint.Add(elementAnalysis[1]);
 
-                            if (elementAnalisys[1] == "line")
+                            if (elementAnalysis[1] == "line")
                             {
                                 
                                 SendInfoMessage("Line Resuls:");
@@ -101,7 +101,7 @@ foreach (var element in allElementOfVariante)
                                 resultForPrint.Add(resultsNEPLAN[29].Split(':')[1]);
                                 
                             }
-                            if (elementAnalisys[1] == "node")
+                            if (elementAnalysis[1] == "node")
                             {
                                 SendInfoMessage("Node Results:");
                                 SendInfoMessage(resultsNEPLAN[0]);
@@ -110,7 +110,7 @@ foreach (var element in allElementOfVariante)
                                 resultForPrint.Add(resultsNEPLAN[0].Split(':')[1]);
                                 resultForPrint.Add(resultsNEPLAN[1].Split(':')[1]);
                             }
-                            if (elementAnalisys[1] == "trafo2")
+                            if (elementAnalysis[1] == "trafo2")
                             {
                                 SendInfoMessage("Transformer 2w Results:");
                                 SendInfoMessage("Port 0");
@@ -161,7 +161,7 @@ using (StreamWriter fileResults = File.CreateText(fileName))
     foreach (var itemResults in results)
     {
         //SendInfoMessage(itemResults.Value);
-        foreach (var i in elementsAnalisys)
+        foreach (var i in elementsAnalysis)
         {
             var itemElement = i.Split(',');
             foreach (var itemElemets in itemResults.Value)
