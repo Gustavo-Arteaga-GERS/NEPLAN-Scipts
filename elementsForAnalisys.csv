@@ -1,0 +1,10 @@
+Ancon Sur(EPM) - AnconSur(ISA) 2,line
+Enea - San Felipe 2 220,line
+Armenia - Hermosa 1 230,line
+Guatiguara - Primavera 1 230,line
+PT Guatiguara- Primavera,node
+Prim - Sog 500 shn,node
+Magdalena M 220,node
+Cerromatoso 3 500/230,trafo2
+Paipa 2 220/115,trafo2
+Paipa 3 220/115,trafo2
